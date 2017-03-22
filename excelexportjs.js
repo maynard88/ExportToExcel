@@ -30,8 +30,8 @@
         var excelData;
 
         return Initialize();
-
-        function Initialize() {
+		
+		function Initialize() {
             var type = $settings.datatype.toLowerCase();
 
             BuildDataStructure(type);
@@ -246,7 +246,7 @@
                 txtArea1.document.write(tab_text);
                 txtArea1.document.close();
                 txtArea1.focus();
-                sa = txtArea1.document.execCommand("SaveAs", true, 'download.xls');
+                sa = txtArea1.document.execCommand("SaveAs", true, "download");
             }
             else                
                 sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
@@ -258,3 +258,20 @@
         
     };
 })(jQuery);
+
+
+//get columns
+function getColumns(paramData){
+
+	var header = [];
+	$.each(paramData[0], function (key, value) {
+		//console.log(key + '==' + value);
+		var obj = {}
+		obj["headertext"] = key;
+		obj["datatype"] = "string";
+		obj["datafield"] = key;
+		header.push(obj);
+	}); 
+	return header;
+
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src='excelexportjs.js'></script>
+</head>
+<body>
+<iframe id="txtArea1" style="display:none"></iframe>
+<p>Example Data:</p>
+[
+	{"firstName":"John", "lastName":"Doe"}, 
+	{"firstName":"Anna", "lastName":"Smith"},
+	{"firstName":"Peter", "lastName":"Jones"}
+]
+	
+<div id="dvjson"></div>
+</br>
+<button id='DLtoExcel'>Export Data to Excel</button>
+<script>
+    
+	//assuming you have a json data as above
+	var data = [
+					{"firstName":"John", "lastName":"Doe"}, 
+					{"firstName":"Anna", "lastName":"Smith"},
+					{"firstName":"Peter", "lastName":"Jones"}
+				]
+					
+	
+	var $btnDLtoExcel = $('#DLtoExcel');
+    $btnDLtoExcel.on('click', function () {
+      	$("#dvjson").excelexportjs({
+                    containerid: "dvjson"
+                       , datatype: 'json'
+                       , dataset: data
+                       , columns: getColumns(data)     
+                });
+
+    });
+	
+	
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+For IE users, rename the downloaded file to <filename>.xls
