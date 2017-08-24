@@ -1,1 +1,2 @@
 For IE users, rename the downloaded file to <filename>.xls
+do not remove <iframe id="txtArea1" style="display:none"></iframe>
